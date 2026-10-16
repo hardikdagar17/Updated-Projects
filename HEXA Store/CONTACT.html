@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support | HEXA Store — 24/7 Customer Helpdesk</title>
+    <meta name="description" content="Get in touch with the HEXA Store team for order tracking, product inquiries, returns, or technical support. We are here to help 24/7.">
+    <link rel="stylesheet" href="STYLE.css">
+    <link rel="icon" href="HEXA Watch3.png">
+</head>
+<body>
+
+    <!-- TOP PROMOTIONAL ANNOUNCEMENT -->
+    <div class="top-announcement">
+        <span class="badge-pill">Helpdesk</span>
+        <span>Dedicated Customer Support Available 24/7 • Average response time under 15 minutes</span>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="HOME.html" class="logo" id="nav-brand-logo">
+                <div class="logo-hexagon"></div>
+                <span>HEXA <span class="logo-text-accent">Store</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="HOME.html">Home</a>
+                <a href="PRODUCT.html">Products</a>
+                <a href="CONTACT.html" class="active">Contact</a>
+                <a href="LOGIN.html">Login</a>
+                <a href="SIGNUP.html">Signup</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="nav-btn theme-toggle-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+                    <svg class="theme-icon-sun" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="theme-icon-moon" style="display:inline-block;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+
+                <!-- Wishlist Trigger -->
+                <a href="PRODUCT.html" class="nav-btn" title="Wishlist" aria-label="View Wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span class="wishlist-count-badge" style="display:none;">0</span>
+                </a>
+
+                <!-- Cart Drawer Trigger -->
+                <button class="nav-btn cart-btn-trigger" onclick="openCartDrawer()" title="View Cart" aria-label="View Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-count-badge" style="display:none;">0</span>
+                </button>
+
+                <!-- User Session Badge -->
+                <a href="LOGIN.html" class="nav-user-badge" id="nav-user-badge">
+                    <span class="user-avatar-circle">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </span>
+                    <span class="user-name-text">Account</span>
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div class="mobile-nav-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-nav-drawer" id="mobile-menu-drawer">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <div class="logo-hexagon"></div>
+                <span>HEXA Store</span>
+            </div>
+            <button class="cart-drawer-close" onclick="document.getElementById('mobile-menu-overlay').click()">&times;</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="HOME.html">Home</a></li>
+            <li><a href="PRODUCT.html">Products Catalog</a></li>
+            <li><a href="CONTACT.html" class="active">Contact & Support</a></li>
+            <li><a href="LOGIN.html">Account Login</a></li>
+            <li><a href="SIGNUP.html">Create Account</a></li>
+        </ul>
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+            <button class="btn btn-primary btn-block" onclick="openCartDrawer(); document.getElementById('mobile-menu-overlay').click();">
+                View My Cart (<span class="cart-count-badge" style="display:inline;">0</span>)
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="section">
+        <div class="breadcrumbs">
+            <a href="HOME.html">Home</a>
+            <span>/</span>
+            <span>Contact & Support</span>
+        </div>
+
+        <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+            <span class="section-badge">Direct Communication</span>
+            <h1 class="section-title">We'd Love to Hear From You</h1>
+            <p class="section-subtitle" style="margin: 0; max-width: 650px;">
+                Have questions about your order, need technical setup assistance, or want to explore partnership opportunities? Drop us a line below.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Left Info Cards -->
+            <div class="contact-info-cards">
+                <div class="contact-info-card">
+                    <div class="contact-info-card-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div>
+                        <h4>Email Helpdesk</h4>
+                        <p>General & Order Queries: <strong style="color: var(--primary);">support@hexastore.in</strong></p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Average response time: 2 hours</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-card-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div>
+                        <h4>Toll-Free Hotline</h4>
+                        <p>Speak to our specialists: <strong style="color: var(--primary);">+91 1800-420-HEXA</strong></p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Mon – Sat: 9:00 AM – 9:00 PM IST</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-card-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div>
+                        <h4>Headquarters & Experience Store</h4>
+                        <p>HEXA Innovations Tower, Sector 44, Tech Boulevard, Gurgaon, Haryana 122003, India</p>
+                    </div>
+                </div>
+
+                <!-- Guarantee Badge Box -->
+                <div style="background: var(--primary-gradient-subtle); border: 1px solid rgba(255,122,0,0.25); border-radius: var(--radius-md); padding: 22px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.05rem;">HEXA 100% Satisfaction Shield</h4>
+                    </div>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5;">
+                        Every product purchased directly from HEXA Store includes our hassle-free 7-day replacement warranty and 1-year brand coverage.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Contact Form -->
+            <div class="contact-form-card">
+                <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px;">Send a Direct Message</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 24px;">Fill in your details and our customer care team will respond promptly.</p>
+
+                <form id="contact-form">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label for="contact-name">Your Full Name *</label>
+                            <input type="text" id="contact-name" placeholder="e.g. Hardik Dagar" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address *</label>
+                            <input type="email" id="contact-email" placeholder="name@domain.com" required>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label for="contact-dept">Department / Subject *</label>
+                            <select id="contact-dept">
+                                <option value="general">General Inquiries</option>
+                                <option value="order">Order Tracking & Delivery</option>
+                                <option value="warranty">Warranty & Replacement</option>
+                                <option value="wholesale">Corporate / Bulk Orders</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-order-id">Order Reference (Optional)</label>
+                            <input type="text" id="contact-order-id" placeholder="e.g. HEXA-842910">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message">Your Message *</label>
+                        <textarea id="contact-message" placeholder="Please describe how we can assist you..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FAQ ACCORDION SECTION -->
+        <div class="faq-section">
+            <div class="section-header">
+                <span class="section-badge">Common Queries</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Quick answers to the questions our customers ask most often</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <div class="faq-question">
+                        <span>How long does delivery take across India?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        We dispatch all orders within 24 hours. Metro cities typically receive deliveries within 2 to 3 business days, while non-metro locations take 4 to 5 business days. You will receive an SMS and email with live courier tracking upon dispatch.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your 7-Day Replacement Policy?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        If your item arrives damaged, defective, or different from described, you can initiate a return or replacement within 7 days of delivery. Our courier partner will pick up the package from your doorstep without extra charges.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I apply coupon codes like HEXA10?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        You can open your slide-out cart by clicking the cart bag in the header. Enter "HEXA10" into the Promo Code box and click Apply. Your 10% discount will immediately reflect on the subtotal.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are all HEXA products covered under warranty?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! All HEXA smartwatches, audio devices, chargers, and kitchen appliances come with a minimum 1-Year Comprehensive Manufacturer Warranty against manufacturing defects.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        We accept all major UPI apps (Google Pay, PhonePe, Paytm), Credit & Debit Cards (Visa, MasterCard, RuPay), Net Banking across 50+ Indian banks, and Cash on Delivery (COD) on select pin codes.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-hexagon"></div>
+                    <span style="color: #ffffff;">HEXA <span class="logo-text-accent">Store</span></span>
+                </div>
+                <p>Engineered for tomorrow. HEXA Store delivers modern everyday essentials, audio gear, smart living electronics, and outdoor wear crafted with precision.</p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-btn" title="Twitter / X"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                    <a href="#" class="footer-social-btn" title="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" class="footer-social-btn" title="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Shop Categories</h4>
+                <ul class="footer-links">
+                    <li><a href="PRODUCT.html">Wearables & Smartwatches</a></li>
+                    <li><a href="PRODUCT.html">Wireless Audio & ANC</a></li>
+                    <li><a href="PRODUCT.html">Trail Hiking Footwear</a></li>
+                    <li><a href="PRODUCT.html">Home & Kitchen Appliances</a></li>
+                    <li><a href="PRODUCT.html">Fast Chargers & Cases</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="HOME.html">Home</a></li>
+                    <li><a href="PRODUCT.html">All Products</a></li>
+                    <li><a href="CONTACT.html">Customer Support</a></li>
+                    <li><a href="LOGIN.html">Account Login</a></li>
+                    <li><a href="SIGNUP.html">Create Account</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="CONTACT.html">Track My Order</a></li>
+                    <li><a href="CONTACT.html">Return & Refund Policy</a></li>
+                    <li><a href="CONTACT.html">Warranty Registration</a></li>
+                    <li><a href="CONTACT.html">Shipping Guidelines</a></li>
+                    <li><a href="CONTACT.html">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div>&copy; 2026 HEXA Store Inc. All Rights Reserved. Designed with precision.</div>
+                <div class="payment-badges">
+                    <span class="payment-badge">UPI</span>
+                    <span class="payment-badge">VISA</span>
+                    <span class="payment-badge">MASTERCARD</span>
+                    <span class="payment-badge">NET BANKING</span>
+                    <span class="payment-badge">COD</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-OUT CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart (<span class="cart-count-badge">0</span>)</h3>
+            <button class="cart-drawer-close" onclick="closeCartDrawer()">&times;</button>
+        </div>
+
+        <div class="cart-drawer-body">
+            <div class="cart-empty-state" id="cart-empty-state">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <h4>Your cart is empty</h4>
+                <p>Looks like you haven't added any products yet.</p>
+                <a href="PRODUCT.html" class="btn btn-primary" onclick="closeCartDrawer()">Explore Catalog</a>
+            </div>
+            <div id="cart-drawer-items"></div>
+        </div>
+
+        <div class="cart-drawer-footer">
+            <div class="coupon-row">
+                <input type="text" id="coupon-input" placeholder="Promo code (e.g. HEXA10)">
+                <button class="btn btn-secondary btn-sm" onclick="applyCoupon()">Apply</button>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Subtotal</span>
+                <span id="cart-drawer-subtotal">₹0</span>
+            </div>
+            <div class="cart-breakdown-row" id="cart-discount-row" style="display:none; color: var(--success);">
+                <span>Discount</span>
+                <span id="cart-drawer-discount">-₹0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Estimated Shipping</span>
+                <span id="cart-drawer-shipping">FREE</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Total Amount</span>
+                <span id="cart-drawer-total">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="cart-checkout-btn" onclick="openCheckoutModal()" disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top-btn" id="back-to-top-btn" title="Back to Top" aria-label="Back to Top">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+    <!-- CORE SCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>

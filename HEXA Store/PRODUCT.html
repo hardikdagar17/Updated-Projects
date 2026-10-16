@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Catalog | HEXA Store — Smart Wearables, Audio & Tech</title>
+    <meta name="description" content="Browse our complete collection of smartwatches, ANC headphones, true wireless earbuds, blenders, charging accessories, and trail shoes.">
+    <link rel="stylesheet" href="STYLE.css">
+    <link rel="icon" href="HEXA Watch3.png">
+</head>
+<body>
+
+    <!-- TOP PROMOTIONAL ANNOUNCEMENT -->
+    <div class="top-announcement">
+        <span class="badge-pill">Limited Deal</span>
+        <span>Use coupon <strong>HEXA10</strong> for extra 10% discount at checkout</span>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="HOME.html" class="logo" id="nav-brand-logo">
+                <div class="logo-hexagon"></div>
+                <span>HEXA <span class="logo-text-accent">Store</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="HOME.html">Home</a>
+                <a href="PRODUCT.html" class="active">Products</a>
+                <a href="CONTACT.html">Contact</a>
+                <a href="LOGIN.html">Login</a>
+                <a href="SIGNUP.html">Signup</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="nav-btn theme-toggle-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+                    <svg class="theme-icon-sun" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="theme-icon-moon" style="display:inline-block;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+
+                <!-- Wishlist Trigger -->
+                <a href="#products-catalog-grid" class="nav-btn" title="Wishlist" aria-label="View Wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span class="wishlist-count-badge" style="display:none;">0</span>
+                </a>
+
+                <!-- Cart Drawer Trigger -->
+                <button class="nav-btn cart-btn-trigger" onclick="openCartDrawer()" title="View Cart" aria-label="View Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-count-badge" style="display:none;">0</span>
+                </button>
+
+                <!-- User Session Badge -->
+                <a href="LOGIN.html" class="nav-user-badge" id="nav-user-badge">
+                    <span class="user-avatar-circle">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </span>
+                    <span class="user-name-text">Account</span>
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div class="mobile-nav-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-nav-drawer" id="mobile-menu-drawer">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <div class="logo-hexagon"></div>
+                <span>HEXA Store</span>
+            </div>
+            <button class="cart-drawer-close" onclick="document.getElementById('mobile-menu-overlay').click()">&times;</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="HOME.html">Home</a></li>
+            <li><a href="PRODUCT.html" class="active">Products Catalog</a></li>
+            <li><a href="CONTACT.html">Contact & Support</a></li>
+            <li><a href="LOGIN.html">Account Login</a></li>
+            <li><a href="SIGNUP.html">Create Account</a></li>
+        </ul>
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+            <button class="btn btn-primary btn-block" onclick="openCartDrawer(); document.getElementById('mobile-menu-overlay').click();">
+                View My Cart (<span class="cart-count-badge" style="display:inline;">0</span>)
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN STOREFRONT CONTENT -->
+    <main>
+        <!-- STOREFRONT HEADER & FILTERS -->
+        <div class="storefront-header">
+            <div style="max-width: 1320px; margin: 0 auto;">
+                <div class="breadcrumbs">
+                    <a href="HOME.html">Home</a>
+                    <span>/</span>
+                    <span>All Products</span>
+                </div>
+                <h1 class="section-title" style="margin-bottom: 6px;">Explore HEXA Collection</h1>
+                <p class="section-subtitle" style="margin: 0; max-width: 600px;">
+                    Hand-crafted technology and daily lifestyle gear backed by standard warranty and express dispatch.
+                </p>
+
+                <!-- Filter & Search Control Bar -->
+                <div class="filter-bar">
+                    <div class="filter-top-row">
+                        <!-- Search Box -->
+                        <div class="search-box-wrap">
+                            <span class="search-box-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            </span>
+                            <input type="text" id="product-search-input" placeholder="Search products by title, category, feature...">
+                        </div>
+
+                        <!-- Right Controls: Sort & Quick Toggle -->
+                        <div class="filter-controls-right">
+                            <button class="btn btn-secondary btn-sm" id="filter-under-1000">
+                                ⚡ Under ₹1,000
+                            </button>
+                            <select class="sort-select" id="product-sort-select">
+                                <option value="featured">Sort: Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Customer Rating</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Category Pills -->
+                    <div class="filter-pill-group">
+                        <button class="filter-pill active" data-category="all">All Products (11)</button>
+                        <button class="filter-pill" data-category="wearables">Wearables</button>
+                        <button class="filter-pill" data-category="audio">Audio & Sound</button>
+                        <button class="filter-pill" data-category="footwear">Footwear</button>
+                        <button class="filter-pill" data-category="home">Home & Tech</button>
+                        <button class="filter-pill" data-category="accessories">Accessories</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCTS SECTION -->
+        <section class="section">
+            <div class="results-meta-bar">
+                <span id="product-results-count">Showing 11 of 11 products</span>
+                <span style="display: flex; align-items: center; gap: 6px;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    All items in stock & ready to ship
+                </span>
+            </div>
+
+            <!-- Dynamic Product Grid Rendered by JS with Full Fallback Support -->
+            <div class="products-grid" id="products-catalog-grid"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-hexagon"></div>
+                    <span style="color: #ffffff;">HEXA <span class="logo-text-accent">Store</span></span>
+                </div>
+                <p>Engineered for tomorrow. HEXA Store delivers modern everyday essentials, audio gear, smart living electronics, and outdoor wear crafted with precision.</p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-btn" title="Twitter / X"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                    <a href="#" class="footer-social-btn" title="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" class="footer-social-btn" title="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Shop Categories</h4>
+                <ul class="footer-links">
+                    <li><a href="PRODUCT.html">Wearables & Smartwatches</a></li>
+                    <li><a href="PRODUCT.html">Wireless Audio & ANC</a></li>
+                    <li><a href="PRODUCT.html">Trail Hiking Footwear</a></li>
+                    <li><a href="PRODUCT.html">Home & Kitchen Appliances</a></li>
+                    <li><a href="PRODUCT.html">Fast Chargers & Cases</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="HOME.html">Home</a></li>
+                    <li><a href="PRODUCT.html">All Products</a></li>
+                    <li><a href="CONTACT.html">Customer Support</a></li>
+                    <li><a href="LOGIN.html">Account Login</a></li>
+                    <li><a href="SIGNUP.html">Create Account</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="CONTACT.html">Track My Order</a></li>
+                    <li><a href="CONTACT.html">Return & Refund Policy</a></li>
+                    <li><a href="CONTACT.html">Warranty Registration</a></li>
+                    <li><a href="CONTACT.html">Shipping Guidelines</a></li>
+                    <li><a href="CONTACT.html">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div>&copy; 2026 HEXA Store Inc. All Rights Reserved. Designed with precision.</div>
+                <div class="payment-badges">
+                    <span class="payment-badge">UPI</span>
+                    <span class="payment-badge">VISA</span>
+                    <span class="payment-badge">MASTERCARD</span>
+                    <span class="payment-badge">NET BANKING</span>
+                    <span class="payment-badge">COD</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-OUT CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart (<span class="cart-count-badge">0</span>)</h3>
+            <button class="cart-drawer-close" onclick="closeCartDrawer()">&times;</button>
+        </div>
+
+        <div class="cart-drawer-body">
+            <div class="cart-empty-state" id="cart-empty-state">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <h4>Your cart is empty</h4>
+                <p>Looks like you haven't added any products yet.</p>
+                <a href="PRODUCT.html" class="btn btn-primary" onclick="closeCartDrawer()">Explore Catalog</a>
+            </div>
+            <div id="cart-drawer-items"></div>
+        </div>
+
+        <div class="cart-drawer-footer">
+            <div class="coupon-row">
+                <input type="text" id="coupon-input" placeholder="Promo code (e.g. HEXA10)">
+                <button class="btn btn-secondary btn-sm" onclick="applyCoupon()">Apply</button>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Subtotal</span>
+                <span id="cart-drawer-subtotal">₹0</span>
+            </div>
+            <div class="cart-breakdown-row" id="cart-discount-row" style="display:none; color: var(--success);">
+                <span>Discount</span>
+                <span id="cart-drawer-discount">-₹0</span>
+            </div>
+            <div class="cart-breakdown-row">
+                <span>Estimated Shipping</span>
+                <span id="cart-drawer-shipping">FREE</span>
+            </div>
+            <div class="cart-breakdown-row total-row">
+                <span>Total Amount</span>
+                <span id="cart-drawer-total">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="cart-checkout-btn" onclick="openCheckoutModal()" disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top-btn" id="back-to-top-btn" title="Back to Top" aria-label="Back to Top">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+    <!-- CORE SCRIPT -->
+    <script src="script.js"></script>
+    <script>
+        // Check if coming with a category preference from HOME page
+        document.addEventListener("DOMContentLoaded", () => {
+            const pref = localStorage.getItem("hexa_filter_pref");
+            if (pref) {
+                localStorage.removeItem("hexa_filter_pref");
+                const pill = document.querySelector(`.filter-pill[data-category="${pref}"]`);
+                if (pill) {
+                    pill.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
